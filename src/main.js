@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router';
+import store from './store';
 //按需引入element-ui
-import { Button, Container, Header, Aside, Main, Menu, Submenu, MenuItemGroup, MenuItem } from 'element-ui'
+import { Button, Container, Header, Aside, Main, Menu, Submenu, MenuItemGroup, MenuItem, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
 //引入element-ui css样式
 import 'element-ui/lib/theme-chalk/index.css';
 //引入mockServe
@@ -19,8 +20,12 @@ Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItemGroup)
 Vue.use(MenuItem)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
 // 我是test

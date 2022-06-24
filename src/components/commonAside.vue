@@ -2,14 +2,20 @@
   <el-menu
     default-active="1-4-1"
     class="el-menu-vertical-demo"
+    background-color="#545c64"
+    mode="vertical"
+    text-color="#fff"
+    active-text-color="#fbbd08"
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
   >
+    <h3>{{ isCollapse ? "后台" : "后台管理系统" }}</h3>
     <el-menu-item
       :index="item.path"
       v-for="item in listNochild"
       :key="item.name"
+      @click="changePage(item)"
     >
       <i :class="'el-icon-' + item.icon"></i>
       <span slot="title">{{ item.label }}</span>
@@ -42,7 +48,6 @@ import { getAsideList } from "@/api/requestData";
 export default {
   data() {
     return {
-      isCollapse: false,
       listData: [],
     };
   },
@@ -53,6 +58,10 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+    changePage(item) {
+      console.log(item.name);
+      this.$router.push({ name: item.name });
+    },
   },
   computed: {
     listNochild: function () {
@@ -61,19 +70,31 @@ export default {
     listHaschild: function () {
       return this.listData.filter((item) => item.children);
     },
+    isCollapse() {
+      return this.$store.state.lab.isCollapse;
+    },
   },
   mounted() {
     getAsideList().then((res) => {
       this.listData = res.data;
-      console.log(this.listData);
     });
   },
 };
 </script>
-<style>
+<style lang="less" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: auto;
+  width: 200px;
+  min-height: 400px;
+}
+.el-menu {
+  border: none;
   height: 100vh;
+  h3 {
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    color: #fff;
+    line-height: 60px;
+  }
 }
 </style>
 
