@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="1-4-1"
+    default-active="/"
     class="el-menu-vertical-demo"
     background-color="#545c64"
     mode="vertical"
@@ -34,6 +34,7 @@
           :index="item1.path"
           v-for="item1 in item.children"
           :key="item1.name"
+          @click="changePage(item1)"
         >
           <i :class="'el-icon-' + item1.icon"></i>
           <span slot="title">{{ item1.label }}</span>
@@ -59,8 +60,8 @@ export default {
       console.log(key, keyPath);
     },
     changePage(item) {
-      console.log(item.name);
       this.$router.push({ name: item.name });
+      this.$store.commit("ADDTABSLIST", item);
     },
   },
   computed: {

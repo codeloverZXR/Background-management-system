@@ -8,7 +8,14 @@
         size="mini"
         @click="changeIsCollapse"
       ></el-button>
-      <h3>首页</h3>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item
+          v-for="(item, index) in tabsList"
+          :key="index"
+          :to="{ name: item.name }"
+          >{{ item.label }}
+        </el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
     <div class="connent-right">
       <el-dropdown>
@@ -25,6 +32,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "commonHeader",
   data() {
@@ -34,6 +42,11 @@ export default {
     changeIsCollapse() {
       this.$store.commit("CHANGEISCOLLAPSE");
     },
+  },
+  computed: {
+    ...mapState({
+      tabsList: (state) => state.lab.tabsList,
+    }),
   },
 };
 </script>
@@ -45,16 +58,16 @@ export default {
   align-items: center;
   justify-content: space-between;
   .conntent-left {
-    width: 15%;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     .el-button {
       font-size: 20px;
     }
-    h3 {
-      color: #fff;
-      font-size: 18px;
+    .el-breadcrumb {
+      margin-left: 20px;
+      font-size: 14px;
     }
   }
   .connent-right {

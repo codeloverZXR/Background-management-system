@@ -5,4 +5,16 @@ const getAsideList = () => {
     method: 'get'
   })
 }
-export { getAsideList }
+const getGoodsList = () => {
+  return requestBymock({
+    url: '/goodsList',
+    method: 'get'
+  })
+}
+const getSalesList = () => {
+  return requestBymock({
+    url: '/salesList',
+    method: 'get'
+  })
+}
+export { getAsideList, getGoodsList, getSalesList }

@@ -8,6 +8,7 @@
         <common-header />
       </el-header>
       <el-main>
+        <common-tag />
         <router-view />
       </el-main>
     </el-container>
@@ -17,11 +18,13 @@
 <script>
 import commonHeader from "@/components/commonHeader.vue";
 import commonAside from "@/components/commonAside.vue";
+import commonTag from "@/components/commonTag.vue";
 export default {
   name: "HomeIndex",
   components: {
     commonAside,
     commonHeader,
+    commonTag,
   },
   data() {
     return {};
@@ -31,13 +34,22 @@ export default {
 
 <style lang ="less" scoped>
 .el-container {
+  position: relative;
   .el-header {
+    width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #2c3e50;
+    background-color: #00ccff;
   }
   .el-main {
-    background-color: #d0d0d0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    overflow-y: scroll;
   }
 }
 </style>

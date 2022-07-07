@@ -1,0 +1,38 @@
+[
+  {
+    "Revenue": "￥1323",
+    "icon": "collection-tag",
+    "lable": "今日收入",
+    "color": "#bfa"
+  },
+  {
+    "Revenue": "￥17230",
+    "icon": "suitcase",
+    "lable": "本月收入",
+    "color": "#ddd"
+  },
+  {
+    "Revenue": "￥133300",
+    "icon": "paperclip",
+    "lable": "本年收入",
+    "color": "#fff143"
+  },
+  {
+    "Revenue": "13",
+    "icon": "star-on",
+    "lable": "今日收藏",
+    "color": "#bfa"
+  },
+  {
+    "Revenue": "356",
+    "icon": "shopping-cart-1",
+    "lable": "今日销量",
+    "color": "#ddd"
+  },
+  {
+    "Revenue": "4775",
+    "icon": "shopping-cart-1",
+    "lable": "本月销量",
+    "color": "#fff143"
+  }
+]

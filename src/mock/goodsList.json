@@ -1,0 +1,130 @@
+[
+  {
+    "chartsList": {
+      "dateList": [
+        "2022.1.1",
+        "2022.1.2",
+        "2022.1.3",
+        "2022.1.4",
+        "2022.1.5"
+      ],
+      "goodsName": [
+        "oppo",
+        "vivo",
+        "华为",
+        "苹果",
+        "小米"
+      ],
+      "volume": [
+        [
+          "132",
+          "452",
+          "127",
+          "903",
+          "236"
+        ],
+        [
+          "232",
+          "213",
+          "543",
+          "136",
+          "324"
+        ],
+        [
+          "123",
+          "674",
+          "323",
+          "12",
+          "123"
+        ],
+        [
+          "676",
+          "34",
+          "232",
+          "231",
+          "564"
+        ],
+        [
+          "31",
+          "231",
+          "54",
+          "234",
+          "131"
+        ]
+      ]
+    }
+  },
+  {
+    "goodsList": [
+      {
+        "name": "oppo",
+        "toDayNumber": "500",
+        "monthNumber": "1000",
+        "allNumber": "10020"
+      },
+      {
+        "name": "vivo",
+        "toDayNumber": "600",
+        "monthNumber": "2000",
+        "allNumber": "10900"
+      },
+      {
+        "name": "华为",
+        "toDayNumber": "400",
+        "monthNumber": "2000",
+        "allNumber": "10200"
+      },
+      {
+        "name": "苹果",
+        "toDayNumber": "300",
+        "monthNumber": "3000",
+        "allNumber": "10400"
+      },
+      {
+        "name": "小米",
+        "toDayNumber": "800",
+        "monthNumber": "2040",
+        "allNumber": "30000"
+      }
+    ]
+  },
+  {
+    "weeklySales": [
+      {
+        "day": "周一",
+        "newUser": "50",
+        "activeUser": "421"
+      },
+      {
+        "day": "周二",
+        "newUser": "23",
+        "activeUser": "432"
+      },
+      {
+        "day": "周三",
+        "newUser": "56",
+        "activeUser": "342"
+      },
+      {
+        "day": "周四",
+        "newUser": "21",
+        "activeUser": "674"
+      },
+      {
+        "day": "周五",
+        "newUser": "65",
+        "activeUser": "235"
+      },
+      {
+        "day": "周六",
+        "newUser": "23",
+        "activeUser": "217"
+      },
+      {
+        "day": "周日",
+        "newUser": "68",
+        "activeUser": "674"
+      }
+    ]
+  }
+]

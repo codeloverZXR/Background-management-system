@@ -26,15 +26,15 @@
     "icon": "location",
     "children": [
       {
-        "path": "/page1",
-        "name": "page1",
+        "path": "/pageOne",
+        "name": "pageOne",
         "label": "页面1",
         "icon": "setting",
         "url": "Other/PageOne"
       },
       {
-        "path": "/pagel2",
-        "name": "pagel2",
+        "path": "/pageTwo",
+        "name": "pageTwo",
         "label": "页面2",
         "icon": "setting",
         "url": "Other/PageTwo"
