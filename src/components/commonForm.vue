@@ -18,7 +18,7 @@
         type="date"
         value-format="yyyy-MM-dd"
         placeholder="请选择日期"
-        v-model="value1"
+        v-model="localForm[item.model]"
       >
       </el-date-picker>
       <el-select
