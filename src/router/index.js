@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 Vue.use(VueRouter)
 //保存下来push方法 将来我们还会用到原push方法进行路由跳转
 let originPush = VueRouter.prototype.push;
@@ -12,13 +13,15 @@ VueRouter.prototype.push = function (location, resolve, reject) {
     //如果成功 调用原来的push方法  
     originPush.call(this, location, resolve, reject);
   } else {
-    originPush.call(this, location, () => { }, () => { });
+    originPush.call(this, location, () => {
+    }, () => {
+    });
   }
 }
 const routes = [
   {
     path: '/',
-    redirect: '/main'
+    redirect: '/login'
   },
   {
     path: '/main',
@@ -56,6 +59,12 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/login.vue')
+  }
+
 ]
 const router = new VueRouter({
   mode: 'history',

@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      value1:''
+      value1: "",
       // localForm: this.form,
     };
   },

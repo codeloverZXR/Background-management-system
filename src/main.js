@@ -31,14 +31,24 @@ import {
   DatePicker,
   Select,
   Option,
-  Dialog
+  Dialog,
+  Pagination,
+  MessageBox,
+  Message
 } from 'element-ui'
 //引入element-ui css样式
 import 'element-ui/lib/theme-chalk/index.css';
+//全局引入$confirm组件
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$message = Message
 //引入mockServe
 import "@/mock/mockServe.js"
 Vue.config.productionTip = false
 // Vue.component(Button.name, Button);
+//引入全局路由导航守卫
+router.beforeEach((to,from,next) => {
+  store.commit('')
+})
 //使用element-ui组件
 Vue.use(Button)
 Vue.use(Header)
@@ -68,12 +78,9 @@ Vue.use(DatePicker)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Dialog)
+Vue.use(Pagination)
 new Vue({
   router,
   store,
   render: h => h(App),
 }).$mount('#app')
-// master
-
-//hotfix
-//updateFunctiontest
