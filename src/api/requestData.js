@@ -50,4 +50,12 @@ const deleteUser = (params) => {
     data: params
   })
 }
-export { getAsideList, getGoodsList, getSalesList, createUser, getUserList, updateUser, deleteUser }
+// 用户登录获取权限
+const getMenu = (params) => {
+  return requestBymock({
+    url: '/getMenu',
+    method: 'post',
+    data: params
+  })
+}
+export {getAsideList, getGoodsList, getSalesList, createUser, getUserList, updateUser, deleteUser, getMenu}

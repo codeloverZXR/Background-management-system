@@ -24,7 +24,7 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item @click.native="logOut">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -41,6 +41,24 @@ export default {
   methods: {
     changeIsCollapse() {
       this.$store.commit("CHANGEISCOLLAPSE");
+    },
+    logOut() {
+      this.$confirm("确定退出该用户?", "提示", {
+        confirmButtonText: "确认",
+        cancelButtonText: "取消",
+        type: "warning",
+      }).then(() => {
+        //清除menu
+        this.$store.commit("CLEARMENU");
+        //清除token
+        this.$store.commit("ClEARTOKEN");
+        //返回登录页面
+        this.$router.push({ name: "login" });
+        this.$message({
+          type: "info",
+          message: "登出成功",
+        });
+      });
     },
   },
   computed: {

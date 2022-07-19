@@ -8,6 +8,10 @@
 export default {
   name: "App",
   components: {},
+    created() {
+    //刷新页面，重新加载路由
+    this.$store.commit('ADDMENU', this.$router)
+  }
 };
 </script>
 

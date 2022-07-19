@@ -28,35 +28,35 @@ const routes = [
     name: 'main',
     component: () => import('@/views/MainIndex.vue'),
     children: [
-      {
-        path: '/main',
-        redirect: '/main/home'
-      },
-      {
-        path: '/main/home',
-        name: 'home',
-        component: () => import('@/views/home/HomeIndex.vue')
-      },
-      {
-        path: '/main/goodsManage',
-        name: 'mall',
-        component: () => import('@/views/goodsManage/goodsManage.vue')
-      },
-      {
-        path: '/main/userManage',
-        name: 'user',
-        component: () => import('@/views/userManage/userManage.vue')
-      },
-      {
-        path: '/main/others/pageOne',
-        name: 'pageOne',
-        component: () => import('@/views/others/pageOne.vue')
-      },
-      {
-        path: '/main/others/pageTwo',
-        name: 'pageTwo',
-        component: () => import('@/views/others/pageTwo.vue')
-      }
+      // {
+      //   path: '/main',
+      //   redirect: '/main/home'
+      // },
+      // {
+      //   path: '/main/home',
+      //   name: 'home',
+      //   component: () => import('@/views/home/HomeIndex.vue')
+      // },
+      // {
+      //   path: '/main/goodsManage',
+      //   name: 'mall',
+      //   component: () => import('@/views/goodsManage/goodsManage.vue')
+      // },
+      // {
+      //   path: '/main/userManage',
+      //   name: 'user',
+      //   component: () => import('@/views/userManage/userManage.vue')
+      // },
+      // {
+      //   path: '/main/others/pageOne',
+      //   name: 'pageOne',
+      //   component: () => import('@/views/others/pageOne.vue')
+      // },
+      // {
+      //   path: '/main/others/pageTwo',
+      //   name: 'pageTwo',
+      //   component: () => import('@/views/others/pageTwo.vue')
+      // }
     ]
   },
   {
