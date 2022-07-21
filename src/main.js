@@ -33,6 +33,10 @@ import {
   Option,
   Dialog,
   Pagination,
+  RadioGroup,
+  Radio,
+  CheckboxGroup,
+  Checkbox,
   MessageBox,
   Message
 } from 'element-ui'
@@ -54,13 +58,12 @@ router.beforeEach((to, from, next) => {
   const token = store.state.user.token
   //如果你没有token且要跳转的路由名称不是login页面那就返回登录页面重新登录获取token
   if (!token && to.name !== 'login') {
-    next({ name: 'login' })
+    next({name: 'login'})
   } else if (token && to.name === 'login') {
     //如果你已经登录，就不能访问登录页了
-    next({ name: 'home' })
+    next({name: 'home'})
     this.$message.warning('用户已登录')
-  }
-  else {
+  } else {
     next()
   }
 })
@@ -94,6 +97,10 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Dialog)
 Vue.use(Pagination)
+Vue.use(RadioGroup)
+Vue.use(Radio)
+Vue.use(CheckboxGroup)
+Vue.use(Checkbox)
 new Vue({
   router,
   store,
