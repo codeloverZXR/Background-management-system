@@ -17,7 +17,7 @@ const mutations = {
     state.isCollapse = !state.isCollapse
   },
   ADDTABSLIST(state, value) {
-    if (state.tabsList.indexOf(value) === -1 && value.name != 'home') {
+    if (state.tabsList.indexOf(value) === -1 && value.name !== 'home') {
       state.tabsList.push(value)
     }
   },
@@ -27,28 +27,50 @@ const mutations = {
   //设置menu
   SETMENU(state, val) {
     state.menu = val
-    Cookie.set('menu', JSON.stringify(val))
+    // Cookie.set('menu', JSON.stringify(val))
+    sessionStorage.setItem('menu', JSON.stringify(val))
+    console.log(typeof JSON.stringify(val))
   },
   //清除menu
   CLEARMENU(state) {
     state.menu = []
-    Cookie.remove('menu')
+    // Cookie.remove('menu')
+    sessionStorage.removeItem('menu')
   },
   // 动态添加menu中的路由
   ADDMENU(state, router) {
-    //如果当前浏览器没有该menu的cookie就直接返回
-    if (!Cookie.get('menu')) {
+    //cookie存menu
+    // //如果当前浏览器没有该menu的cookie就直接返回
+    // if (!Cookie.get('menu')) {
+    //   return
+    // }
+    // //将本地cookie序列化后保存到vuex中
+    // const localMenu = JSON.parse(Cookie.get('menu'))
+    // state.menu = localMenu
+    // //forEach 和 map的区别
+    // localMenu.forEach(item => {
+    //   //如果有子路由
+    //   if (item.children) {
+    //     item.children = item.children.map(item => {
+    //       //为每个子路由添加component属性
+    //       item.component = () => import(`@/views${item.url}`)
+    //       return item
+    //     })
+    //   } else {
+    //     item.component = () => import(`@/views${item.url}`)
+    //   }
+    //   router.addRoute('main', item)
+    // })
+    //sessionStorge存menu
+    if (!sessionStorage.getItem('menu')) {
       return
     }
-    //将本地cookie序列化后保存到vuex中
-    const localMenu = JSON.parse(Cookie.get('menu'))
+    const localMenu = JSON.parse(sessionStorage.getItem('menu'))
+    console.log(localMenu)
     state.menu = localMenu
-    //forEach 和 map的区别
     localMenu.forEach(item => {
-      //如果有子路由
       if (item.children) {
         item.children = item.children.map(item => {
-          //为每个子路由添加component属性
           item.component = () => import(`@/views${item.url}`)
           return item
         })
