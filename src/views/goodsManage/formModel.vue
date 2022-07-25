@@ -15,6 +15,7 @@
       </el-select>
       <el-date-picker v-if="item.type === 'date'"
                       v-model="form[item.model]"
+                      value-format="yyyy-MM-dd"
                       :placeholder="`请选择${item.label}`">
       </el-date-picker>
       <el-checkbox-group v-if="item.type === 'checkbox'" v-model="form[item.model]">
