@@ -38,22 +38,31 @@ const mutations = {
   ADDGOOD(state, form) {
     state.goodsList.push(form)
   },
-  EDITGOOD(state, form, index) {
+  EDITGOOD(state, {form, index}) {
     state.goodsList[index] = form
   },
   DELGOOD(state, index) {
     state.goodsList.splice(index, 1)
+  },
+  EXCHANGEGOOD(state, {from, to}) {
+    console.log(from, to, '11')
+    const orgGood = state.goodsList[to]
+    state.goodsList[to] = state.goodsList[from]
+    state.goodsList[from] = orgGood
   }
 }
 const actions = {
   addGood({commit}, form) {
     commit('ADDGOOD', form)
   },
-  editGood({commit}, form, index) {
-    commit('EDITGOOD', form, index)
+  editGood({commit}, keyword) {
+    commit('EDITGOOD', keyword)
   },
   delGood({commit}, index) {
     commit('DELGOOD', index)
+  },
+  exchangeGood({commit}, keyword) {
+    commit('EXCHANGEGOOD', keyword)
   }
 }
 const getters = {}

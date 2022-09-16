@@ -10,7 +10,8 @@
           @close="handleClose"
           :collapse="isCollapse"
   >
-    <h3>{{ isCollapse ? "后台" : "后台管理系统" }}</h3>
+    <h3 class="small" v-show="isCollapse">后台</h3>
+    <h3 class="big" v-show="!isCollapse">后台管理系统</h3>
     <el-menu-item
             :index="item.path"
             v-for="item in listNochild"
@@ -95,13 +96,25 @@
   .el-menu {
     border: none;
     height: 100vh;
-
-    h3 {
+    .small{
       border-bottom: 1px solid #fff;
       text-align: center;
       color: #fff;
       line-height: 60px;
+      width: 64px;
+    }
+    .big {
+      border-bottom: 1px solid #fff;
+      text-align: center;
+      color: #fff;
+      line-height: 60px;
+      width: 200px;
     }
   }
+  // .el-menu-vertical-demo el-menu{
+  //   h3,li{
+  //     width: 200px !important;
+  //   }
+  // }
 </style>
 

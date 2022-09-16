@@ -20,6 +20,8 @@
               :options="options"
               @update="datadragEnd"
               delay="1"
+              @end="changGoodPosition"
+
       >
         <el-row v-for="(item,index) in goodsList" :key="index">
           <el-col :span="4">{{item.name}}</el-col>
@@ -50,9 +52,11 @@
 <script>
   import formModel from "@/views/goodsManage/formModel";
   import draggable from 'vuedraggable'
+  import {mapState} from 'vuex'
 
   export default {
     name: "goodsManage",
+    inject: ['reload'],
     components: {
       formModel,
       draggable
@@ -168,6 +172,7 @@
           remarks: '商品备注'
         },
         goodsList: this.$store.state.goods.goodsList,
+        editIndex: 0,
         options: {
           dragClass: 'dragClass',
           ghostClass: 'ghostClass',
@@ -175,11 +180,14 @@
         }
       }
     },
-    // computed: {
-    //   gooodsList: function () {
-    //     return this.$store.state.goods.goodsList
-    //   }
-    // },
+    computed: {
+      // ...mapState({
+      //   goodsList:(state) => state.goods.goodsList
+      // })
+      // goodsList() {
+      //   return this.$store.state.goods.goodsList
+      // }
+    },
     methods: {
       addGoods() {
         this.addGoodsShow = true
@@ -194,7 +202,11 @@
                 message: '添加商品成功'
               })
             } else if (this.title === '编辑商品') {
-              this.$store.dispatch('editGood', this.form)
+              const keyword = {
+                form: this.form,
+                index: this.editIndex
+              }
+              this.$store.dispatch('editGood', keyword)
               // this.$store.commit('EDITGOOD', this.form)
               this.$message({
                 type: 'success',
@@ -230,7 +242,8 @@
       editGood(item, index) {
         this.addGoodsShow = true
         this.title = '编辑商品'
-        this.form = item
+        this.form = JSON.parse(JSON.stringify(item))
+        this.editIndex = index
       },
       delGood(index) {
         this.$confirm("是否要删除该商品信息?", "警告", {
@@ -258,6 +271,14 @@
       },
       datadragEnd(evt) {
         evt.preventDefault();
+      },
+      changGoodPosition({oldIndex, newIndex}) {
+        const keyword = {
+          from: oldIndex,
+          to: newIndex
+        }
+        this.$store.dispatch('exchangeGood', keyword)
+        this.reload()
       }
     },
     mounted() {

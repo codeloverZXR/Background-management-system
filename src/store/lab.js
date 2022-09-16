@@ -74,10 +74,15 @@ const mutations = {
           item.component = () => import(`@/views${item.url}`)
           return item
         })
+        item.children.forEach(item => {
+          router.addRoute('main', item)
+        })
       } else {
         item.component = () => import(`@/views${item.url}`)
+        router.addRoute('main', item)
       }
-      router.addRoute('main', item)
+      // console.log(item,'test')
+      // router.addRoute('main', item)
     })
   }
 }

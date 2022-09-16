@@ -48,6 +48,8 @@ Vue.prototype.$message = Message
 //引入mockServe
 import "@/mock/mockServe.js"
 import Cookie from 'js-cookie'
+//
+// import "@/utils/rem.js"
 
 Vue.config.productionTip = false
 // Vue.component(Button.name, Button);
